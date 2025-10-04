@@ -1068,7 +1068,6 @@ variable "postinstall_exec" {
   description = "Additional to execute after the install calls, for example restoring a backup."
 }
 
-
 variable "extra_kustomize_deployment_commands" {
   type        = string
   default     = ""
@@ -1085,6 +1084,18 @@ variable "extra_kustomize_folder" {
   type        = string
   default     = "extra-manifests"
   description = "Folder from where to upload extra manifests"
+}
+
+variable "extra_kustomize_pre_install_folder" {
+  type        = string
+  default     = "extra-manifests-preinstall"
+  description = "Folder from where to upload extra manifests that are run before Kustomization, such as repo installation"
+}
+
+variable "extra_kustomize_pre_install_post_deploy_commands" {
+  type        = string
+  default     = "sleep 10"
+  description = "Commands to be executed after the Kustomization pre-install stage"
 }
 
 variable "create_kubeconfig" {

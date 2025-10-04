@@ -952,10 +952,18 @@ module "kube-hetzner" {
   # More information about the registration can be found here https://rancher.com/docs/rancher/v2.6/en/cluster-provisioning/registered-clusters/
   # rancher_registration_manifest_url = "https://rancher.xyz.dev/v3/import/xxxxxxxxxxxxxxxxxxYYYYYYYYYYYYYYYYYYYzzzzzzzzzzzzzzzzzzzzz.yaml"
 
+
+  # Local folder for Kustomization *.yaml.tpl-files that are to be run before the `extra-manifests`. Defaults to `"extra-manifests-preinstall"`.
+  # extra_kustomize_pre_install_folder = "extra-manifests-preinstall"
+  
+  # Command to be executed after the `apply -k` of pre-install Kustomizations defined by `<extra_kustomize_pre_install_folder>/kustomization.yaml.tpl`. Defaults to "sleep 10".
+  # Can be used with installation of CRDs with commands such as `kubectl wait --for=condition=Available deployment/mycrd`
+  # extra_kustomize_pre_install_post_deploy_commands = "sleep 10"
+
   # Extra commands to be executed after the `kubectl apply -k` (useful for post-install actions, e.g. wait for CRD, apply additional manifests, etc.).
   # extra_kustomize_deployment_commands=""
 
-  # Extra values that will be passed to the `extra-manifests/kustomization.yaml.tpl` if its present.
+  # Extra values that will be passed to the `extra-manifests/kustomization.yaml.tpl` and `extra-manifests-preinstall/kustomization.yaml.tpl` when present.
   # extra_kustomize_parameters={}
 
   # See working examples for extra manifests or a HelmChart in examples/kustomization_user_deploy/README.md
