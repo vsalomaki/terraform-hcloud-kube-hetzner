@@ -104,7 +104,7 @@ nmcli connection up vlan9999
 ```
 default via 95.123.231.123 dev enp6s0 proto static onlink 
 10.0.0.0/8 via 10.201.0.1 dev enp6s0.4000 proto static onlink 
-10.201.0.0/24 dev enp6s0.4000 proto kernel scope link src 10.201.0.2 
+10.201.0.0/16 dev enp6s0.4000 proto kernel scope link src 10.201.0.2 
 ```
 - `ip addr` on the Robot Node should include similar to this:
 ```
@@ -118,7 +118,7 @@ default via 95.123.231.123 dev enp6s0 proto static onlink
        valid_lft forever preferred_lft forever
 3: enp6s0.4000@enp6s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1400 qdisc noqueue state UP group default qlen 1000
     link/ether a8:a1:REDACTED brd ff:ff:ff:ff:ff:ff
-    inet 10.201.0.2/24 brd 10.201.0.255 scope global enp6s0.4000
+    inet 10.201.0.2/16 brd 10.201.0.255 scope global enp6s0.4000
        valid_lft forever preferred_lft forever
     inet6 fe80::REDACTED/64 scope link 
        valid_lft forever preferred_lft forever

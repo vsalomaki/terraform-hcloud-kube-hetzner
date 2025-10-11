@@ -1904,8 +1904,6 @@ Excellent! Let's continue our meticulous dissection.
 * **`cilium_loadbalancer_acceleration_mode` (String, Optional, relevant if `cni_plugin = "cilium"`):**
   * **Default:** `"best-effort"`.
   * **Purpose:** Specifies the Loadbalancer Acceleration mode for Cilium (loadBalancer.acceleration). 
-  * **Impact:** Deploys Hubble components (e.g., Hubble Relay, Hubble UI pods) into the cluster.
-  * **Reference:** See [Cilium XDP documentation](https://docs.cilium.io/en/stable/network/kubernetes/kubeproxy-free/#loadbalancer-nodeport-xdp-acceleration)
 
 ```terraform
   # You can choose the version of Calico that you want. By default, the latest is used.
